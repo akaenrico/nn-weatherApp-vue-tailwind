@@ -1,0 +1,15 @@
+version: '3.9'
+
+services:
+  app:
+    image: node:18.18.0-alpine
+    working_dir: /home/node/app
+    command: ash -c "yarn && yarn dev"
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/home/node/app
+    environment:
+      MAPBOX_API_KEY:
+    ports:
+      - 5173:5173
